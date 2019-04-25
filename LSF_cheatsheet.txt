@@ -1,0 +1,8 @@
+bsub
+
+bjobs
+
+bkill
+
+bpeek job_id
+-- view output from running job. job_id default: most recent

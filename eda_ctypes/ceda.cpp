@@ -30,13 +30,23 @@ void get_inter(int nao)
                 }
 }
 
+/*
+void ecoul(double **dm, int nao, double *eri, int neri, int **basrg, int natom, double *ecoul, int necoul)
+{
+    for (int i=1; i <= nao; i++)
+		for (int j=1; j <= nao; j++)	
+}*/
+
+void test(double **dm, int nao)
+
 int main()
 {
     //int a[] = {3,4,1,1};
     //int *abegin = begin(a);
     //int *aend = end(a);
     //reduce(abegin, aend);
-    get_inter(10);
+    
+    //get_inter(10);
     return 0;
 }
 

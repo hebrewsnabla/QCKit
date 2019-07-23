@@ -31,13 +31,16 @@ def c_get_coul(dm, eri, bas2atm, natom):
     ## input
     c_dm = dm.ctypes.data_as(ct.c_void_p)
     nao = dm.shape[0]
+    #c_dm = dm.ctypes.data_as((ct.c_int*nao)*nao)
     c_nao = ct.c_int(nao)
     c_eri = eri.ctypes.data_as(ct.c_void_p)
+    #c_eri = eri.ctypes.data_as((((ct.c_int*nao)*nao)*nao)*nao)
     #c_neri = ct.c_int(len(eri))
     #natom = len(basrange1)
     c_natom = ct.c_int(natom)
     #c_basrg = np.asarray(basrange1).data_as(ctypes.c_void_p)
     c_bas2atm = np.asarray(bas2atm).ctypes.data_as(ct.c_void_p)
+    #c_bas2atm = (ct.c_int*nao)(bas2atom)
     #c_nbas = ct.c_int(len(bas2atm))
     ## output
     #c_ecoul = ctypes.c_void_p()

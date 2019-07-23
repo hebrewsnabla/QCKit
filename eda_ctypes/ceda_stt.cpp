@@ -1,7 +1,6 @@
 #include<iostream>
 #include<fstream>
 #include<set>
-#include<vector>
 //#include<iterator>
 using namespace std;
 
@@ -55,42 +54,29 @@ int get_bas2atm(int nao, int *basrg, int natom, int bas_ofatom)
     return bas2atm, bas_num;
 }*/
 
-void ecoul(double *dm, int nao, double *eri, int *bas2atm, int natom/*, double *ecoul, int necoul*/
+void ecoul(double **dm, int nao, double ****eri, int *bas2atm, int natom/*, double *ecoul, int necoul*/
 )
 {
     //ofstream f ("1.txt", ios::out);
-    cout << dm[0] << '\n';
-    cout << nao << '\n';
-    cout << eri[0] << '\n';
-    
-    vector<vector<double> > v_dm;
-    v_dm.resize(nao);
-    cout << "v_dm ok";
-    for (int i=0; i<v_dm.size(); i++)
-    {
-        v_dm[i].resize(nao);
-        //for (int j=0; j<nao; j++)
-        //    v_dm[i][j] = dm[i*nao+j];
-    }
-    cout << v_dm[nao][nao]; 
-    exit(0);
+    //cout << dm[0] << '\n';
+    //cout << nao << '\n';
+    //cout << eri[0] << '\n';
     double atom_E[natom] = {0.0};
-    //int ctr = 0;
+    int ctr = 0;
     #pragma omp parallel for public(bas2atm) reduction(+:atom_E)
     for (int i=0; i < nao; i++)
     {
 		for (int j=0; j < nao; j++)
         {
-            double dmij = dm[i*nao+j];
+            int dmij = dm[i][j];
             int a = bas2atm[i];
             int b = bas2atm[j];
             for (int k=0; k<nao; k++)
             {
                 for (int l=0; l<nao; l++)
                 {
-                    double ecoul = 0.5 * dmij * dm[k*nao+l] * \
-                    (eri[i*nao*nao*nao + j*nao*nao + l*nao + k] \
-                    - 0.5 * eri[i*nao*nao*nao + k*nao*nao + l*nao + j]);
+                    double ecoul = 0.5 * dmij * dm[k][l] * \
+                    (eri[i][j][l][k] - 0.5 * eri[i][k][l][j]);
                     int c = bas2atm[k];
                     int d = bas2atm[l];
                     int abcd[] = {a,b,c,d};

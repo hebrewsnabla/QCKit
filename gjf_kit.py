@@ -5,6 +5,8 @@ def gjf_parser(gjf):
     with open(gjf, 'r') as f:
         gjflines = f.readlines()
     geom = ""
+    molcharge = 0
+    spin = 0
     coords = []
     charges = []
     for line in gjflines:

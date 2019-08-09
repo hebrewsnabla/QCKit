@@ -53,7 +53,19 @@ count # of files (w/out dir) `ls -l | grep "^-" | wc -l`. See **grep**, **wc**.
 ```bash
 wc -l # count lines
 ```
-#Shortcuts
+# I/O
+## input
+```bash
+# this is a bash file
+echo "the bash file is $0"
+echo "the first input is $1"
+echo "the first input is $2"
+# ...
+echo "the number of input params is $#"
+echo "all input params are $*" # i.e. "$1 $2 ..."
+echo "all input params are $@" # i.e. "$1" "$2" ...
+```
+# Shortcuts
 ```
 Ctrl+L # clear
 Ctrl+A # jump to head of current line

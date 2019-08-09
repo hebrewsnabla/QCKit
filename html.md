@@ -1,0 +1,7 @@
+## comment
+```html
+<!-- comment -->
+<!--
+comment
+//-->
+```

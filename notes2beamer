@@ -1,0 +1,27 @@
+'''
+XeLaTeX Notes to Beamer
+
+Shirong Wang
+19/06/26
+'''
+
+notes = 'a.tex'
+
+with open(notes,'r') as f:
+    ntlines = f.readlines()
+
+frame
+for line in ntlines:
+    if '\\begin{doc' in line:
+	    begindoc = ntlines.index(line)
+	if '\\end{
+	    end
+	if 'documentclass'
+	
+	if 'begin{equation}' not in line:
+	    txt_l = 1
+	else:
+	    eq_l = 1
+	    if 'begin{aligned' in line:
+		    # how many '\\'
+		

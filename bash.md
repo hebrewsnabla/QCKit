@@ -1,3 +1,18 @@
+# Math
+## expr
+```bash
+val=`expr ...`
+echo $val
+```
+expressions:
+```bash
+val=`expr $a + $b`
+val=`expr $a - $b`
+val=`expr \( $a + $c \) \* $b`
+val=`expr $b / $a`
+val=`expr $b % $a`
+```
+
 # Stream
 ## for
 ```bash
@@ -8,6 +23,7 @@ for i in `seq 1 100`
 # General
 ## find
 `find [-path] -option`
+
 ```bash
 # options
 -name 
@@ -27,6 +43,7 @@ grep "^-" # file
 grep "^d" # dir
 ```
 ## ls
+
 ```bash
 ls -l
 ls -lR # recursively

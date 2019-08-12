@@ -21,6 +21,18 @@ for i in {1..100}
 for i in `seq 1 100`
 ```
 # General
+## df
+check disk use
+```bash
+df -h
+df -h /user/
+```
+## du
+```bash
+du -h # recursively!
+du --max-depth=1 -h [-path]
+du -sh [-path] # itself
+```
 ## find
 `find [-path] -option`
 

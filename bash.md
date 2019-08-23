@@ -65,6 +65,18 @@ count # of files (w/out dir) `ls -l | grep "^-" | wc -l`. See **grep**, **wc**.
 ```bash
 wc -l # count lines
 ```
+## tar
+```bash
+tar -xvf foo.tar     # extract, verbosely
+tar -cvf foo.tar foo # create, ...
+tar -zxvf foo.tar.gz
+tar -jxvf foo.tar.bz2
+#options
+-d # difference
+-r, --append
+-u, --update
+-t, --list
+```
 # I/O
 ## input
 ```bash

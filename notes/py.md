@@ -1,4 +1,12 @@
-#Stream
+# I/O
+## string justification
+```python
+>>> print('|' + 'hej'.ljust(20) + '|' + 'hej'.rjust(20) + '|' + 'hej'.center(20) + '|')
+|hej                 |                 hej|        hej         |
+>>> print('hej'.center(20, '+'))
+++++++++hej+++++++++
+```
+# Stream
 ## try
 ```python
 try:

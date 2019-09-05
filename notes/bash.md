@@ -108,6 +108,28 @@ sed -i "N,Md" filename # N~Mth line
 sed -i "/abc/d" filename
 sed -i "/abc/d;/efg/d" filename
 ```
+# Misc
+## date, cal
+```bash
+$ date
+Fri Aug 30 01:46:13 CST 2019
+$ date -R
+Fri, 30 Aug 2019 01:46:59 +0800
+$ cal
+     August 2019
+Su Mo Tu We Th Fr Sa
+             1  2  3
+ 4  5  6  7  8  9 10
+11 12 13 14 15 16 17
+18 19 20 21 22 23 24
+25 26 27 28 29 30 31
+$ tzselect # modify time zone
+# to modify time or date
+$ date -s MM/DD/YYYY
+$ date -s hh/mm/ss
+# to save the modification
+$ hwclock -w
+```
 # Shortcuts
 ```
 Ctrl+L # clear

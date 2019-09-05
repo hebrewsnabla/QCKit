@@ -1,3 +1,10 @@
+# Data Structure
+# tuple
+* cannot be modified
+* merge `tup = tup1 + tup2`
+* multiplication `tup = (1,) * 1000`
+
+
 # I/O
 ## string justification
 ```python

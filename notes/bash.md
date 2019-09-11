@@ -89,6 +89,15 @@ wc -l # count lines
 ```
 
 # I/O
+## merge files
+```bash
+cat 1.log 2.log > merge.log
+cat *.log > merge.log
+paste file1 file2 > file3 # merge as columns
+cat file1 file2 | sort | uniq > file3 # 并集
+cat file1 file2 | sort | uniq -d > file3 # 交集
+cat file1 file2 | sort | uniq -u > file3 # 差集
+```
 ## input
 ```bash
 # this is a bash file

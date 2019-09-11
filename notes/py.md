@@ -6,6 +6,13 @@
 
 
 # I/O
+## join
+```python
+>>> str = ','
+>>> seq = ['1','2','3'] # tuple is also ok
+>>> str.join(seq)
+'1,2,3'
+```
 ## string justification
 ```python
 >>> print('|' + 'hej'.ljust(20) + '|' + 'hej'.rjust(20) + '|' + 'hej'.center(20) + '|')

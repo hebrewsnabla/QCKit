@@ -14,11 +14,24 @@
 '1,2,3'
 ```
 ## string justification
+### ljust, rjust
 ```python
 >>> print('|' + 'hej'.ljust(20) + '|' + 'hej'.rjust(20) + '|' + 'hej'.center(20) + '|')
 |hej                 |                 hej|        hej         |
 >>> print('hej'.center(20, '+'))
 ++++++++hej+++++++++
+```
+### zfill
+```python
+>>> s = '123'
+>>> s.zfill(5)
+'00123'
+>>> s = '-123'
+>>> s.zfill(5)
+'-0123'
+>>> a = 123
+>>> "%05d" % a
+'00123'
 ```
 # Stream
 ## try

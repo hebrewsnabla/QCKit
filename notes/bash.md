@@ -110,12 +110,34 @@ echo "all input params are $*" # i.e. "$1 $2 ..."
 echo "all input params are $@" # i.e. "$1" "$2" ...
 ```
 ## sed
-```bash
+```bash 
 # delete
 sed -i "Nd" filename # Nth line
 sed -i "N,Md" filename # N~Mth line
 sed -i "/abc/d" filename
 sed -i "/abc/d;/efg/d" filename
+# replace
+sed -i "Nc/abc" fil
+sed -i "N,Mc/abc" fil
+# search and replace
+sed -i "s/abc/efg/g" fil # replace abc with efg globally (only first case in a line replaced without 'g')
+sed -i "s/^abc/efg/" fil # replace abc at beginning of a line to efg
+sed -i "s/abc/&efg/g" fil # replace abc with abcefg
+sed -i "N,Ms/abc/efg/" fil
+# insert
+
+# append
+
+```
+* tricks
+```bash
+sed -i "3s/^/abc/" # add abc at the beginning of line 3
+sed -i "3s/$/&abc/" # add abc at end of line 3
+
+sed -i "$s/abc/efg/" # '$' means last line
+
+sed -i "3s;^;/home/wsr/a.47;" # ';' is employed as '/' above
+
 ```
 # Misc
 ## date, cal

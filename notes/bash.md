@@ -1,38 +1,7 @@
-# Math
-## expr
-```bash
-val=`expr ...`
-echo $val
-```
-expressions:
-```bash
-val=`expr $a + $b`
-val=`expr $a - $b`
-val=`expr \( $a + $c \) \* $b`
-val=`expr $b / $a`
-val=`expr $b % $a`
-```
 
-# Stream
-## for
-```bash
-for i in ((i=0; i<=100; i++)) # C-like
-for i in {1..100}
-for i in `seq 1 100`
-```
+
 # General
-## df
-check disk use
-```bash
-df -h
-df -h /user/
-```
-## du
-```bash
-du -h # recursively!
-du --max-depth=1 -h [-path]
-du -sh [-path] # itself
-```
+
 ## find
 `find [-path] -option`
 
@@ -139,6 +108,25 @@ sed -i "$s/abc/efg/" # '$' means last line
 sed -i "3s;^;/home/wsr/a.47;" # ';' is employed as '/' above
 
 ```
+
+
+
+# Math
+## expr
+```bash
+val=`expr ...`
+echo $val
+```
+expressions:
+```bash
+val=`expr $a + $b`
+val=`expr $a - $b`
+val=`expr \( $a + $c \) \* $b`
+val=`expr $b / $a`
+val=`expr $b % $a`
+```
+
+
 # Misc
 ## date, cal
 ```bash
@@ -171,4 +159,71 @@ Ctrl+Y # paste
 Ctrl+C # kill current program
 Ctrl+D # exit
 Ctrl+R # search history command
+```
+
+# Stream
+## for
+```bash
+for i in ((i=0; i<=100; i++)) # C-like
+for i in {1..100}
+for i in `seq 1 100`
+```
+
+# String
+## create string
+`'` cannot contain `$var` and `\n`, etc., but `"` can.
+```bash
+echo ${#str} # get length
+echo `expr index "$str" o` # get index of 'o' (count from 1)
+```
+## cut string
+`{str: start: length}`
+```bash
+url="c.biancheng.net"
+echo ${url: 2: 9} # output: biancheng
+echo ${url: 2}    # to the end
+```
+`${str: 0-start :length}` count 'start' from right. (However, 'length' always count from left to right)
+
+get string after ':'
+```bash
+url="http://c.biancheng.net/index.html"
+echo ${url#*:}    # use '*' to omit anything before ':'
+echo ${url#http:}
+```
+get string after '/'
+```bash
+url="http://c.biancheng.net/index.html"
+echo ${url#*/} # get '/c.biancheng.net/index.html'
+echo ${url##*/} # get 'index.html'
+```
+get string before '/'
+```bash
+url="http://c.biancheng.net/index.html"
+echo ${url%/*} # get 'http://c.biancheng.net'
+echo ${url%%/*} # get 'http:'
+```
+
+# System
+## df
+check disk use
+```bash
+df -h
+df -h /user/
+```
+## du
+```bash
+du -h # recursively!
+du --max-depth=1 -h [-path]
+du -sh [-path] # itself
+```
+## version
+```bash
+# kernel version
+cat /proc/version
+uname -a
+# distrib version
+cat /etc/issue
+cat /etc/lsb-release
+lsb_release -a
 ```

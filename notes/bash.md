@@ -217,6 +217,12 @@ du -h # recursively!
 du --max-depth=1 -h [-path]
 du -sh [-path] # itself
 ```
+## fatal
+when `ls` does not work (due to missing `:$PATH` when modifying bashrc)
+```bash
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+```
+
 ## version
 ```bash
 # kernel version
